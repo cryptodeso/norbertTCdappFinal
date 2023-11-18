@@ -67,14 +67,14 @@ const Mint: React.FC<ContainerProps> = () => {
   }, [chainId, switchNetwork, chain])
   // const { data: pricePack } = useContractRead({ ...mintContract as any, functionName: "packPrice" });
   const { data: name } = useContractRead({ ...mintContract as any, functionName: "name" });
-  const { write: mintPack, isLoadingPack, isSuccessPack, isErrorPack, errorPack, statusPack } = useContractWrite({
+  const { write: mintPack } = useContractWrite({
     ...mintContract,
     functionName: "mintPack",
     args: [1n],
     value: pricePack as any
   })
 
-  const { write: mint, isLoading, isSuccess, isError, error, status } = useContractWrite({
+  const { write: mint} = useContractWrite({
     ...mintContract,
     functionName: "mint",
     args: [1n],
@@ -91,10 +91,6 @@ const Mint: React.FC<ContainerProps> = () => {
             {/* {formatEther(pricePack as any)} {homeChain.nativeCurrency.symbol} */}
           </IonChip>
         </IonButton>
-        {statusPack}
-        {isLoadingPack && <IonProgressBar type='indeterminate' />}
-        {isErrorPack && <IonChip color='danger'>{errorPack?.message}</IonChip>}
-        {isSuccessPack && <IonChip color='success'>Minted</IonChip>}
 
       </IonTitle>
     </IonCard>
@@ -107,10 +103,6 @@ const Mint: React.FC<ContainerProps> = () => {
           {/* {formatEther(pricePack as any)} {homeChain.nativeCurrency.symbol} */}
         </IonChip>
       </IonButton>
-      {status}
-      {isLoading && <IonProgressBar type='indeterminate' />}
-      {isError && <IonChip color='danger'>{error?.message}</IonChip>}
-      {isSuccess && <IonChip color='success'>Minted</IonChip>}
 
     </IonTitle>
     </IonCard>
