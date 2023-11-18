@@ -2,7 +2,26 @@
     text-align: center;
     background-color: #61dafb;
   }
-  
+
+
+@media (max-width: 576px){
+	.my-class {
+		font-size: 8px;
+		padding: 5px;
+		margin: 1px;
+		width: 200px;
+	}
+}
+
+@media (min-width: 577px){
+	.my-class {
+		font-size: 16px;
+		padding: 15px;
+		margin: 1px;
+	}
+}
+
+
   .App-logo {
     height: 40vmin;
     pointer-events: none;
@@ -29,12 +48,24 @@
     color: #61dafb;
   }
   
+ @media (max-width: 576px){
   .side-image {
     /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
     width: auto; /* or any specific width */
-    height: 250px; /* Adjust the height to match your design */
+    height: 100px; /* Adjust the height to match your design */
   }
-  
+ }
+ 
+ @media (min-width: 577px){
+  .side-image {
+    /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
+    width: auto; /* or any specific width */
+    height: 500px; /* Adjust the height to match your design */
+  }
+ }
+ 
+ 
+ 
   .minting-container {
     display: flex;
     align-items: center; /* This aligns the children (the images and the content) vertically */
@@ -69,23 +100,6 @@
     margin-bottom: 20px; /* Adjust the space as needed */
   }
   
-  .mint-button {
-    background-color: #fff; /* Light pink background */
-    color: #3a3a3a; /* Dark pink text color for contrast */
-    border: none;
-    border-radius: 10px; /* Rounded borders */
-    padding: 10px 20px; /* Padding inside the button */
-    font-size: 1em; /* Adjust the font size as needed */
-    cursor: pointer;
-    box-shadow: 4px 4px 0px #3a3a3a; /* Shadow effect for embossed look */
-    text-shadow: 1px 1px 2px #ffffff88; /* Light white text shadow for depth */
-    transition: all 0.3s ease; /* Transition for interactive effects */
-  }
-  
-  .mint-button:hover {
-    box-shadow: 2px 2px 0px #3a3a3a; /* Smaller shadow for button press effect */
-    transform: translate(2px, 2px); /* Slight movement to simulate button press */
-  }
   
   .slider-container {
     position: relative;

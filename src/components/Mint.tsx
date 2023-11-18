@@ -102,7 +102,7 @@ const Mint: React.FC<ContainerProps> = () => {
 
               <IonCard>
                 <IonTitle>
-                  <IonButton color='tertiary' fill='solid' disabled={!mintPack} onClick={() => mintPack({args: [sliderValue1], value: pricePack*BigInt(sliderValue1)})}>
+                  <IonButton className="my-class" color='tertiary' fill='solid' disabled={!mintPack} onClick={() => mintPack({args: [sliderValue1], value: pricePack*BigInt(sliderValue1)})}>
                     mint Pack ({sliderValue1*3} cards) [{(sliderValue1 * 0.3).toFixed(2)} $AVAX]
                     <IonChip color='success'>
                       {/* {formatEther(pricePack as any)} {homeChain.nativeCurrency.symbol} */}
@@ -133,7 +133,7 @@ const Mint: React.FC<ContainerProps> = () => {
 
             <IonCard>
               <IonTitle>
-                <IonButton color='tertiary' fill='solid' disabled={!mint} onClick={() => mint({args: [sliderValue2], value: individualPrice*BigInt(sliderValue2)})}>
+                <IonButton className="my-class" color='tertiary' fill='solid' disabled={!mint} onClick={() => mint({args: [sliderValue2], value: individualPrice*BigInt(sliderValue2)})}>
                   mint ({sliderValue2}  {sliderValue2 === 1 ? 'card' : 'cards'}) [{(sliderValue2 * 0.123).toFixed(3)} $AVAX]
                   <IonChip color='success'>
                     {/* {formatEther(pricePack as any)} {homeChain.nativeCurrency.symbol} */}
