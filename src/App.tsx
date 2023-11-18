@@ -52,7 +52,7 @@ const App: React.FC = () => {
       <WagmiConfig config={config}>
         <IonReactRouter>
           <IonSplitPane contentId="main">
-            <Menu />
+            {/* <Menu /> */}
             <IonRouterOutlet id="main">
               <Route path="/" exact={true}>
                 <Page />

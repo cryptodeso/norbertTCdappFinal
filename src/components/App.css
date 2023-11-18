@@ -1,0 +1,121 @@
+.App {
+    text-align: center;
+    background-color: #61dafb;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #a0dcf1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .side-image {
+    /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
+    width: auto; /* or any specific width */
+    height: 250px; /* Adjust the height to match your design */
+  }
+  
+  .minting-container {
+    display: flex;
+    align-items: center; /* This aligns the children (the images and the content) vertically */
+    justify-content: space-between; /* This will add space between the children */
+  }
+  
+  .minting-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the buttons and the heading */
+    margin: 25px;
+    padding: 10px;
+  }
+  
+  .emboss-effect {
+    /* Adjust the colors to match the desired emboss effect */
+    background-color: #ddd; /* Light grey background */
+    color: #333; /* Darker text color for contrast */
+  
+    /* Layered box shadows to create the emboss effect */
+    box-shadow: 
+      2px 1px 2px #bbb, /* Lighter shadow on one side */
+      -1px -1px 5px #fff; /* Darker shadow on the opposite side */
+    
+    /* Text-shadow for text elements if needed */
+    text-shadow:
+      1px 1px 2px #fff, /* Lighter text shadow */
+      -1px -1px 2px #888; /* Darker text shadow */
+  }
+  
+  .button-container {
+    margin-bottom: 20px; /* Adjust the space as needed */
+  }
+  
+  .mint-button {
+    background-color: #fff; /* Light pink background */
+    color: #3a3a3a; /* Dark pink text color for contrast */
+    border: none;
+    border-radius: 10px; /* Rounded borders */
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 1em; /* Adjust the font size as needed */
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #3a3a3a; /* Shadow effect for embossed look */
+    text-shadow: 1px 1px 2px #ffffff88; /* Light white text shadow for depth */
+    transition: all 0.3s ease; /* Transition for interactive effects */
+  }
+  
+  .mint-button:hover {
+    box-shadow: 2px 2px 0px #3a3a3a; /* Smaller shadow for button press effect */
+    transform: translate(2px, 2px); /* Slight movement to simulate button press */
+  }
+  
+  .slider-container {
+    position: relative;
+    margin: 20px 0;
+  }
+  
+  .slider {
+    width: 100%; /* Ensure the slider stretches to the container's width */
+  }
+  
+  .slider-labels {
+    display: flex;
+    justify-content: space-between; /* Spread the labels evenly */
+    margin-top: 5px; /* Adjust as needed */
+  }
+  
+  .label {
+    position: relative;
+    flex: 0 0 auto;
+    text-align: center; /* Center the text within the label */
+    /* Adjust width to match the slider's step increments */
+  }
+  
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
