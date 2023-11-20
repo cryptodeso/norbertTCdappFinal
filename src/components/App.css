@@ -50,6 +50,11 @@
     color: #61dafb;
   }
   
+  .progress {
+    color: "#3a3a3a";
+  }
+
+
   @media (max-width: 576px) {
     .side-image {
         /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
@@ -115,6 +120,7 @@
     display: flex;
     justify-content: space-between; /* Spread the labels evenly */
     margin-top: 2px; /* Adjust as needed */
+    margin-bottom: 30px;
   }
   
   .label {

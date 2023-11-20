@@ -1,9 +1,9 @@
 import { IonButton, IonCard, IonChip, IonImg, IonProgressBar, IonTitle } from '@ionic/react';
 import './ExploreContainer.css';
-import { Chain, useChainId, useContractRead, useContractWrite, useNetwork, useSwitchNetwork } from 'wagmi';
+import { Chain, useChainId, useContractRead, useContractWrite, useNetwork, useSwitchNetwork} from 'wagmi';
 import { homeChain, mintContract } from '../config';
 import { useEffect, useState } from 'react';
-import { formatEther } from 'viem';
+import { formatEther} from 'viem';
 import logoTransparent from '../assets/logo_transparent.png'
 import leftImage from '../assets/leftImage.png'
 import rightImage from '../assets/rightImage.png'
@@ -88,6 +88,21 @@ const Mint: React.FC<ContainerProps> = () => {
     // value: individualPrice as any
   })
 
+  const { data: totalSupplyData } = useContractRead({
+    address: mintContract.address,
+    abi: mintContract.abi,
+    functionName: 'maxSupply',
+    watch: true,
+  });
+
+  const { data: currentSupplyData } = useContractRead({
+    address: mintContract.address,
+    abi: mintContract.abi,
+    functionName: 'totalSupply',
+    watch: true,
+  });
+
+
   return (
     <>
 
@@ -99,6 +114,7 @@ const Mint: React.FC<ContainerProps> = () => {
           <img src={leftImage} alt="Left Image" className="side-image emboss-effect" />
           <div className="minting-content">
             <div className="button-container">
+            
 
               <IonCard>
                 <IonTitle>
@@ -127,6 +143,13 @@ const Mint: React.FC<ContainerProps> = () => {
                 ))}
               </div>
             </div>
+            
+            <IonCard>
+              <IonTitle>
+                <span style={{ color: '#fff' }}> Progress: { currentSupplyData ? (currentSupplyData as BigInt).toString() : '0'} / { totalSupplyData ? (totalSupplyData as BigInt).toString() : '0'} </span>
+                </IonTitle>
+            </IonCard>
+
 
             </div>
             <div className="button-container">
@@ -161,8 +184,10 @@ const Mint: React.FC<ContainerProps> = () => {
 
             </div>
           </div>
+          
           <img src={rightImage} alt="Right Image" className="side-image emboss-effect" />
         </div>
+        
       </header>
 
     
