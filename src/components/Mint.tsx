@@ -18,12 +18,12 @@ async function addNetworkToMetaMask(chain: Chain) {
   }
   const networkData = {
     chainId: `0x${chain.id.toString(16)}`, // Convert the chain ID to a hex string
-    chainName: "Avalanche Fuji Testnet",
+    chainName: "Avalanche",
     nativeCurrency: chain.nativeCurrency,
 
     iconUrls: ["https://snowtrace.io/images/logo.svg?v=23.11.2.0"],
-    rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
-    blockExplorerUrls: ["https://testnet.snowtrace.io/"], // Map block explorer objects to their URLs
+    rpcUrls: ["https://avax.meowrpc.com"],
+    blockExplorerUrls: ["https://snowtrace.io/"], // Map block explorer objects to their URLs
   };
   // Check if MetaMask is installed
   const ethereum = (window as any).ethereum
@@ -133,7 +133,7 @@ const Mint: React.FC<ContainerProps> = () => {
 
             <IonCard>
               <IonTitle>
-                <IonButton className="my-class" color='tertiary' fill='solid' disabled={!mint} onClick={() => mint({args: [sliderValue2], value: individualPrice*BigInt(sliderValue2)})}>
+                <IonButton color='tertiary' className="my-class" fill='solid' disabled={!mint} onClick={() => mint({args: [sliderValue2], value: individualPrice*BigInt(sliderValue2)})}>
                   mint ({sliderValue2}  {sliderValue2 === 1 ? 'card' : 'cards'}) [{(sliderValue2 * 0.123).toFixed(3)} $AVAX]
                   <IonChip color='success'>
                     {/* {formatEther(pricePack as any)} {homeChain.nativeCurrency.symbol} */}

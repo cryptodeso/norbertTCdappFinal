@@ -23,19 +23,19 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
-import { avalancheFuji, fantom } from 'viem/chains';
+import { avalanche, fantom } from 'viem/chains';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { InjectedConnector } from 'wagmi/connectors/injected';
 
 
 setupIonicReact();
 const { chains, publicClient } = configureChains(
-  [avalancheFuji],
+  [avalanche],
   [
     jsonRpcProvider({
       rpc: (chain) => {
         return {
-          http: "https://avalanche-fuji-c-chain.publicnode.com",
+          http: "https://avax.meowrpc.com",
         }
       }
     }),

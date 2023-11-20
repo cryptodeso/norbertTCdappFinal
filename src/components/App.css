@@ -3,23 +3,25 @@
     background-color: #61dafb;
   }
 
+/* Custom styles for small screens */
+@media (max-width: 576px) {
+    .my-class {
+      font-size: 8px;
+      padding: 5px;
+      margin: 1px;
+      width: 200px;
+    }
+  }
+  
+  /* Custom styles for larger screens */
+  @media (min-width: 577px) {
+    .my-class {
+      font-size: 16px;
+      padding: 15px;
+      margin: 1px;
+    }
+  }
 
-@media (max-width: 576px){
-	.my-class {
-		font-size: 8px;
-		padding: 5px;
-		margin: 1px;
-		width: 200px;
-	}
-}
-
-@media (min-width: 577px){
-	.my-class {
-		font-size: 16px;
-		padding: 15px;
-		margin: 1px;
-	}
-}
 
 
   .App-logo {
@@ -48,24 +50,24 @@
     color: #61dafb;
   }
   
- @media (max-width: 576px){
-  .side-image {
-    /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
-    width: auto; /* or any specific width */
-    height: 100px; /* Adjust the height to match your design */
+  @media (max-width: 576px) {
+    .side-image {
+        /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
+        width: auto; /* or any specific width */
+        height: 100px; /* Adjust the height to match your design */
+      }
   }
- }
- 
- @media (min-width: 577px){
-  .side-image {
-    /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
-    width: auto; /* or any specific width */
-    height: 500px; /* Adjust the height to match your design */
+  
+
+  @media (min-width: 577px) {
+    .side-image {
+        /* Set a specific width and height for your images, or use auto to maintain aspect ratio */
+        width: auto; /* or any specific width */
+        height: 500px; /* Adjust the height to match your design */
+      }
   }
- }
- 
- 
- 
+
+
   .minting-container {
     display: flex;
     align-items: center; /* This aligns the children (the images and the content) vertically */
@@ -77,7 +79,7 @@
     flex-direction: column;
     align-items: center; /* Center the buttons and the heading */
     margin: 25px;
-    padding: 10px;
+    padding: 1px;
   }
   
   .emboss-effect {
@@ -99,11 +101,10 @@
   .button-container {
     margin-bottom: 20px; /* Adjust the space as needed */
   }
-  
-  
+
   .slider-container {
     position: relative;
-    margin: 20px 0;
+    margin: 10px 0;
   }
   
   .slider {
@@ -113,7 +114,7 @@
   .slider-labels {
     display: flex;
     justify-content: space-between; /* Spread the labels evenly */
-    margin-top: 5px; /* Adjust as needed */
+    margin-top: 2px; /* Adjust as needed */
   }
   
   .label {

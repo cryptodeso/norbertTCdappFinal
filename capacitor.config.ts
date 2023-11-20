@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'run-the-minter',
+  appName: 'NorbertTC',
   webDir: 'dist',
   server: {
     androidScheme: 'https'
