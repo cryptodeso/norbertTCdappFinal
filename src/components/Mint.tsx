@@ -7,6 +7,8 @@ import { formatEther} from 'viem';
 import logoTransparent from '../assets/logo_transparent.png'
 import leftImage from '../assets/leftImage.png'
 import rightImage from '../assets/rightImage.png'
+import MintButtonPack from './MintButtonPack';
+import MintButtonIndividual from './MintButtonIndividual';
 import './App.css'
 
 interface ContainerProps {
@@ -57,36 +59,30 @@ async function addNetworkToMetaMask(chain: Chain) {
   }
 }
 
-const pricePack = 300000000000000000n
-const individualPrice = 123000000000000000n
 
 const Mint: React.FC<ContainerProps> = () => {
-  const chainId = useChainId();
-  const { switchNetwork } = useSwitchNetwork({ chainId: homeChain.id })
-  const { chain, chains } = useNetwork()
   const [hash, setHash] = useState<string | null>(null);
-  const [sliderValue1, setSliderValue1] = useState(1);
-  const [sliderValue2, setSliderValue2] = useState(1);
+ 
 
-  useEffect(() => {
-    homeChain && addNetworkToMetaMask(homeChain);
-    switchNetwork && switchNetwork(homeChain.id)
-  }, [chainId, switchNetwork, chain])
+  // useEffect(() => {
+  //   homeChain && addNetworkToMetaMask(homeChain);
+  //   switchNetwork && switchNetwork(homeChain.id)
+  // }, [chainId, switchNetwork, chain])
   // const { data: pricePack } = useContractRead({ ...mintContract as any, functionName: "packPrice" });
   const { data: name } = useContractRead({ ...mintContract as any, functionName: "name" });
-  const { write: mintPack } = useContractWrite({
-    ...mintContract,
-    functionName: "mintPack",
-    // args: [1n],
-    // value: pricePack as any
-  })
+  // const { write: mintPack } = useContractWrite({
+  //   ...mintContract,
+  //   functionName: "mintPack",
+  //   // args: [1n],
+  //   // value: pricePack as any
+  // })
 
-  const { write: mint} = useContractWrite({
-    ...mintContract,
-    functionName: "mint",
-    // args: [1n],
-    // value: individualPrice as any
-  })
+  // const { write: mint} = useContractWrite({
+  //   ...mintContract,
+  //   functionName: "mint",
+  //   // args: [1n],
+  //   // value: individualPrice as any
+  // })
 
   const { data: totalSupplyData } = useContractRead({
     address: mintContract.address,
@@ -104,7 +100,6 @@ const Mint: React.FC<ContainerProps> = () => {
 
 
   return (
-    <>
 
     <div className="App">
       <header className="App-header">
@@ -114,74 +109,17 @@ const Mint: React.FC<ContainerProps> = () => {
           <img src={leftImage} alt="Left Image" className="side-image emboss-effect" />
           <div className="minting-content">
             <div className="button-container">
-            
+            <MintButtonPack/>
 
-              <IonCard>
-                <IonTitle>
-                  <IonButton className="my-class" color='tertiary' fill='solid' disabled={!mintPack} onClick={() => mintPack({args: [sliderValue1], value: pricePack*BigInt(sliderValue1)})}>
-                    mint Pack ({sliderValue1*3} cards) [{(sliderValue1 * 0.3).toFixed(2)} $AVAX]
-                    <IonChip color='success'>
-                      {/* {formatEther(pricePack as any)} {homeChain.nativeCurrency.symbol} */}
-                    </IonChip>
-                  </IonButton>
-                
-                </IonTitle>
-              </IonCard>
-              <div className="slider-container">
-              <input
-                type="range"
-                min="1"
-                max="10"
-                value={sliderValue1}
-                onChange={(event) => setSliderValue1(Number(event.target.value))}
-                step="1"
-                className="slider"
-              />
-              <div className="slider-labels">
-                {[...Array(10)].map((_, index) => (
-                  <span key={index} className="label">{index + 1}</span>
-                ))}
-              </div>
-            </div>
-            
             <IonCard>
               <IonTitle>
                 <span style={{ color: '#fff' }}> Progress: { currentSupplyData ? (currentSupplyData as BigInt).toString() : '0'} / { totalSupplyData ? (totalSupplyData as BigInt).toString() : '0'} </span>
                 </IonTitle>
             </IonCard>
 
-
             </div>
             <div className="button-container">
-
-            <IonCard>
-              <IonTitle>
-                <IonButton color='tertiary' className="my-class" fill='solid' disabled={!mint} onClick={() => mint({args: [sliderValue2], value: individualPrice*BigInt(sliderValue2)})}>
-                  mint ({sliderValue2}  {sliderValue2 === 1 ? 'card' : 'cards'}) [{(sliderValue2 * 0.123).toFixed(3)} $AVAX]
-                  <IonChip color='success'>
-                    {/* {formatEther(pricePack as any)} {homeChain.nativeCurrency.symbol} */}
-                  </IonChip>
-                </IonButton>
-              </IonTitle>
-            </IonCard>
-            
-            <div className="slider-container">
-              <input
-                type="range"
-                min="1"
-                max="10"
-                value={sliderValue2}
-                onChange={(event) => setSliderValue2(Number(event.target.value))}
-                step="1"
-                className="slider"
-              />
-              <div className="slider-labels">
-                {[...Array(10)].map((_, index) => (
-                  <span key={index} className="label">{index + 1}</span>
-                ))}
-              </div>
-            </div>
-
+              <MintButtonIndividual/>
             </div>
           </div>
           
@@ -193,11 +131,6 @@ const Mint: React.FC<ContainerProps> = () => {
     
     </div>
 
-
-    
-
-    
-    </>
   );
 };
 
